@@ -9,8 +9,16 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('application
 
   // html5push state simulation
   server: {
-    pushState: true
+    // enables HTML5 pushState;
+    // Lineman will serve `generated/index.html` for any request that does not match the apiProxy.prefix
+    pushState: true,
+    apiProxy: {
+      enabled: true,
+      port: 8000,
+      prefix: 'api' // request paths that contain 'api' will now be the only ones forwarded to the apiProxy
+    }
   },
+
 
   // configure lineman to load additional angular related npm tasks
   loadNpmTasks: [
