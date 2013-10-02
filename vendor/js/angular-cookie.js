@@ -1,11 +1,36 @@
 /*
 * Copyright 2013 Ivan Pusic
 */
-(function(angular, $, undefined) {
+(function(angular, document, undefined) {
     'use strict';
 
+    function extend(a, b){
+        var key;
+        for(key in b) {
+            if(b.hasOwnProperty(key)) {
+                a[key] = b[key];
+            }
+        }
+        return a;
+    }
+
+    function isEmpty(obj) {
+
+        if (obj === null || obj === undefined) {
+            return false;
+        }
+
+        var key;
+        for(key in obj) {
+            if(obj.hasOwnProperty(key)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     angular.module('ngCookie', ['ng']).
-    factory('$cookie', ['$document', function ($document) {
+    factory('$cookie', [function () {
         return (function() {
             function cookieFun(key, value, options) {
 
@@ -18,8 +43,7 @@
                         options.expires = new Date();
                         options.expires.setDate(options.expires.getDate() + expiresFor);
                     }
-
-                    return ($document.context.cookie = [
+                    return (document.cookie = [
                         encodeURIComponent(key),
                         '=',
                         encodeURIComponent(value),
@@ -30,38 +54,38 @@
                         ].join(''));
                 }
 
-                // we are getting value
-                var cookies = {}, i, cookie, pos, name;
-                var all = $document.context.cookie;
-                var list = all.split("; ");
-                for(i = 0; i < list.length; ++i) {
-                    cookie = list[i];
-                    pos = cookie.indexOf("=");
-                    name = cookie.substring(0, pos);
-                    value = decodeURIComponent(cookie.substring(pos + 1));
+                var cookies = {}, list = [], i, cookie, pos, name;
 
-                    if (key === undefined || key === name) {
-                        try {
-                            cookies[name] = JSON.parse(value);
-                        } catch (e) {
-                            cookies[name] = value;
-                        }
-                        if (key === name) {
-                            return cookies[name];
+                var all = document.cookie;
+                if (all) {
+                    list = all.split("; ");
+                }
+
+                for(i = 0; i < list.length; ++i) {
+                    if (list[i]) {
+                        cookie = list[i];
+                        pos = cookie.indexOf("=");
+                        name = cookie.substring(0, pos);
+                        value = decodeURIComponent(cookie.substring(pos + 1));
+
+                        if (key === undefined || key === name) {
+                            try {
+                                cookies[name] = JSON.parse(value);
+                            } catch (e) {
+                                cookies[name] = value;
+                            }
+                            if (key === name) {
+                                return cookies[name];
+                            }
                         }
                     }
                 }
-                if ($.isEmptyObject(cookies)){
-                    return false;
-                }else {
-                    return cookies;
-                }
-
+                return isEmpty(cookies) ? false : cookies;
             }
             cookieFun.remove = function (key, options) {
 
                 if (cookieFun(key) !== undefined) {
-                    cookieFun(key, '', $.extend({}, options, { expires: -1 }));
+                    cookieFun(key, '', extend(options, { expires: -1 }));
                     return true;
                 }
                 return false;
@@ -69,4 +93,4 @@
             return cookieFun;
         }());
     }]);
-}(window.angular, $));
+}(window.angular, window.document));

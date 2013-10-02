@@ -17,7 +17,12 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('files', {
   },
 
   js: {
+    // prelibs: [
+
+
+    // ],
     vendor: [
+      "vendor/js/jquery.js",
       "vendor/js/angular.js",
       "vendor/js/underscore.js",
       "vendor/js/**/*.js"
@@ -27,15 +32,6 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('files', {
       "app/js/**/*.js",
       "app/js/**/**/*.js",
       "app/js/**/**/**/*.js",
-
     ]
   },
-
-  less: {
-    compile: {
-      options: {
-        paths: ["vendor/css/normalize.css", "vendor/css/**/*.css", "app/css/**/*.less"]
-      }
-    }
-  }
 });

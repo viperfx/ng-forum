@@ -1,22 +1,62 @@
-<div id="home" class="row">
-  <div class="large-6 large-offset-3">
-    <h2>Welcome {{profile.data.user}} to the {{ title }} page!</h2>
-
-    <div class="alert-box">{{ message }}</div>
-
-    <ul class="small-block-grid-2">
-      <li>
-        <img class="th" src="img/demo1.jpg" shows-message-when-hovered message="Im the first house.">
-      </li>
-      <li>
-        <img class="th" src="img/demo2.jpg" shows-message-when-hovered message="Im the second house.">
-      </li>
-    </ul>
-
-    <div class="row">
-      <div class="large-12 columns">
-        <button ng-click="logout()" class="button large expand radius">Log Out</button>
-      </div>
-    </div>
-  </div>
+<div class="ui tabular filter menu">
+  <a class="active item" data-tab="unread">Unread</a>
+  <a class="item" data-tab="saved">Saved</a>
+  <a class="item" data-tab="all">All</a>
 </div>
+<div class="ui divided inbox selection list active tab" data-tab="unread">
+  <a class="active item">
+    <div class="right floated date">Sep 14, 2013</div>
+    <i class="empty star link icon"></i>
+    Weekly Webcomic Wrapup fought the law, and the law won
+  </a>
+  <a class="item">
+    <div class="right floated date">Sep 14, 2013</div>
+    <i class="empty star link icon"></i>
+    Scientists discover new breed of dog
+  </a>
+  <a class="item">
+    <div class="right floated date">Sep 10, 2013</div>
+    <i class="teal emphasized star link icon"></i>
+    Dogs start colony in Antarctica
+  </a>
+  <a class="item">
+    <div class="right floated date">Sep 09, 2013</div>
+    <i class="empty star link icon"></i>
+    Famous dog whisperer Chakotay dies today at 104
+  </a>
+  <a class="item">
+    <div class="right floated date">Sep 07, 2013</div>
+    <i class="empty star link icon"></i>
+    Top 10 Things to Know about Labradoodles
+  </a>
+  <a class="item">
+    <div class="right floated date">Sep 05, 2013</div>
+    <i class="empty star link icon"></i>
+    Study shows children enjoy the company of animals
+  </a>
+</div>
+<div class="ui divided inbox selection list tab" data-tab="saved">
+  <a class="item">
+    <div class="right floated date">Sep 14, 2013</div>
+    <i class="teal emphasized star link icon"></i>
+    Your favorite saved article
+  </a>
+  <a class="item">
+    <div class="right floated date">Sep 14, 2013</div>
+    <i class="teal emphasized star link icon"></i>
+    Your favorite saved article
+  </a>
+  <a class="item">
+    <div class="right floated date">Sep 14, 2013</div>
+    <i class="teal emphasized star link icon"></i>
+    Your favorite saved article
+  </a>
+</div>
+<div class="ui divided inbox selection list tab" data-tab="all">
+  <a class="item">
+    <div class="right floated date">Sep 14, 2013</div>
+    <i class="star link icon"></i>
+    There turns out there is only one article under all.
+  </a>
+</div>
+

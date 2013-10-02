@@ -79,7 +79,7 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('application
       dest: "<%= files.js.concatenatedSpec %>"
     },
     css: {
-      src: ["<%= files.less.generatedVendor %>", "<%= files.sass.generatedVendor %>", "<%= files.css.vendor %>", "<%= files.less.generatedApp %>", "<%= files.sass.generatedApp %>", "<%= files.css.app %>"],
+      src: ["<%= files.less.generatedVendor %>", "<%= files.css.vendor %>", "<%= files.less.generatedApp %>", "<%= files.css.app %>"],
       dest: "<%= files.css.concatenated %>"
     }
   },
