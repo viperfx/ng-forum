@@ -1,9 +1,11 @@
 # ngForum - AngularJS forum app
 
 ## TODO
-Create Forum, Topic, Thread model and respective api endpoints
+Create views for posts
 
 ## Done
+Hook up endpoints to angular views for forums/threads
+Create Forum, Topic, Thread model and respective api endpoints
 testing authentication via Django REST Framework using Tokens.
 
 ##WIP

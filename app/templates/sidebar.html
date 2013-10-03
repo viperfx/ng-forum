@@ -2,14 +2,11 @@
   <h2 class="ui header">
       <i class="icon inverted circular blue comment"></i> ngForum
   </h2>
-  <a class="active item">
+<!--   <a class="active item">
     Intros <span class="ui label">10</span>
-  </a>
-  <a class="item">
-    Code <span class="ui label">15</span>
-  </a>
-  <a class="item">
-    Design <span class="ui label">2</span>
+  </a> -->
+  <a class="item" ng-repeat="forum in forums" href="/forum/{{ forum.id}}">
+    {{forum.title}} <span class="ui label">{{ forum.id}}</span>
   </a>
   <!-- <div class="item">
     <b>Archived Threads</b>

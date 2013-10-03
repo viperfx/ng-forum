@@ -1,8 +1,8 @@
 // with $resource
-angular.module("app").controller("BooksController", function ($scope, BookResource) {
+angular.module("app").controller("ThreadController", function ($scope, $routeParams, $resource) {
   // because the stubbed endpoint returns an array of results, .query() is used
   // if the endpoint returned an object, you would use .get()
-  $scope.books = BookResource.query();
+  $scope.forum = $resource('/api/forums/:fid').get({fid:$routeParams.id});
 });
 
 // with $http

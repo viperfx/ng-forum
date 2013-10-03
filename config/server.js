@@ -22,12 +22,21 @@ module.exports = {
       res.json({ message: 'logging out!'});
     });
 
-    app.get('/books', function (req, res) {
-      res.json([
-        {title: 'Great Expectations', author: 'Dickens'},
-        {title: 'Foundation Series', author: 'Asimov'},
-        {title: 'Treasure Island', author: 'Stephenson'}
-      ]);
-    });
+    // app.get('/forums', function (req, res) {
+    //   res.json([
+    // {
+    //     "id": 1,
+    //     "title": "Intros"
+    // },
+    // {
+    //     "id": 2,
+    //     "title": "Code"
+    // },
+    // {
+    //     "id": 3,
+    //     "title": "Design"
+    // }
+    // ]);
+    // });
   }
 };

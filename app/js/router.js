@@ -22,6 +22,10 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
     //   }
     // }
   });
+  $routeProvider.when('/forum/:id', {
+    templateUrl: 'threads.html',
+    controller: 'ThreadController'
+  });
 
   $routeProvider.otherwise({ redirectTo: '/home' });
 

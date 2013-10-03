@@ -14,17 +14,19 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ('url', 'name')
 
-class ForumSerializer(serializers.HyperlinkedModelSerializer):
+class ForumSerializer(serializers.ModelSerializer):
     class Meta:
         model = Forum
-        fields = ('title',)
+        depth=1
+        fields = ('id','title','threads',)
 
-class ThreadSerializer(serializers.HyperlinkedModelSerializer):
+class ThreadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Thread
-        fields = ('title', 'forum', 'creator')
+        depth=1
+        fields = ('title', 'forum', 'creator', 'posts')
 
-class PostSerializer(serializers.HyperlinkedModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ('thread', 'body')

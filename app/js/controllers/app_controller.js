@@ -1,3 +1,3 @@
-angular.module('app').controller('AppCtrl', ['$scope', function($scope) {
-    $scope.test = true;
-}]);
+angular.module('app').controller('AppCtrl', function($scope, $resource) {
+    $scope.forums = $resource('/api/forums').query();
+});
