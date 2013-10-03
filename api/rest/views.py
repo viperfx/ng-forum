@@ -37,6 +37,13 @@ class ThreadViewSet(viewsets.ModelViewSet):
     queryset = Thread.objects.all()
     serializer_class = ThreadSerializer
 
+    def create(self, request):
+        topic = Thread(body=request.DATA['body'], creator=User.objects.get(pk=request.DATA['creator']), forum=Forum.objects.get(pk=request.DATA['forum']), title=request.DATA['title'])
+        topic.save()
+        serializer = ThreadSerializer(topic)
+        print serializer.data
+        return Response({"url":"/forum/%d/thread/%d" % (serializer.data['forum']['id'], serializer.data['id'])})
+
 class PostViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.

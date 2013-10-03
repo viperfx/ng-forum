@@ -1,23 +1,22 @@
-<form name="form" novalidate class="login-form">
-    <div class="modal-header">
-        <h4>Sign in</h4>
+<div class="ui form" ng-controller="FormController">
+  <div class="field">
+    <label>Thread Title</label>
+    <div class="ui left labeled input">
+      <input type="text" placeholder="Title" ng-model="threadTitle">
     </div>
-    <div class="modal-body">
-        <div class="alert alert-warning" ng-show="authReason">
-            {{authReason}}
-        </div>
-        <div class="alert alert-error" ng-show="authError">
-            {{authError}}
-        </div>
-        <div class="alert alert-info">Please enter your login details</div>
-        <label>E-mail</label>
-        <input name="login" type="email" ng-model="user.email" required autofocus>
-        <label>Password</label>
-        <input name="pass" type="password" ng-model="user.password" required>
+  </div>
+  <div class="field">
+    <label>Thread Forum</label>
+    <select ng-model="threadForum" ng-options="forum.title for forum in forums"></select>
+  </div>
+  <div class="field">
+    <label>Body</label>
+    <div class="ui left labeled icon input">
+      <textarea ng-model="threadBody"></textarea>
     </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary login" ng-click="login()" ng-disabled='form.$invalid'>Sign in</button>
-        <button class="btn clear" ng-click="clearForm()">Clear</button>
-        <button class="btn btn-warning cancel" ng-click="cancelLogin()">Cancel</button>
-    </div>
-</form>
+  </div>
+  <div class="ui error message">
+    <div class="header">We noticed some issues</div>
+  </div>
+  <div class="ui blue submit button" ng-click="newThread()">Post</div>
+</div>

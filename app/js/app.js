@@ -1,4 +1,4 @@
-angular.module("app", ["ngResource", "ngRoute", "ngCookie"]).run(function($rootScope, $location, $http, AuthenticationService) {
+angular.module("app", ["ngResource", "ngRoute", "ngCookie", "ngAnimate"]).run(function($rootScope, $location, $http, AuthenticationService) {
   // adds some basic utilities to the $rootScope for debugging purposes
   $rootScope.log = function(thing) {
     console.log(thing);

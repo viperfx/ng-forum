@@ -30,7 +30,10 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
     templateUrl: 'threads.html',
     controller: 'ThreadController'
   });
-
+  $routeProvider.when('/new', {
+    templateUrl: 'form.html',
+    controller: 'FormController'
+  });
   $routeProvider.otherwise({ redirectTo: '/home' });
 
 });
