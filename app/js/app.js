@@ -7,6 +7,9 @@ angular.module("app", ["ngResource", "ngRoute", "ngCookie"]).run(function($rootS
   $rootScope.alert = function(thing) {
     alert(thing);
   };
+  $rootScope.go = function(path) {
+    return $location.path(path);
+  }
   //http://arthur.gonigberg.com/2013/06/29/angularjs-role-based-auth/
   // enumerate routes that don't need authentication
   var routesThatDontRequireAuth = ['/login'];

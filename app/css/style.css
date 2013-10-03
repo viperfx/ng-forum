@@ -20,6 +20,7 @@ body {
 
 .ui.header {
   font-family: 'Source Sans Pro', "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  cursor:pointer;
 }
 
 /*******************************
