@@ -6,10 +6,10 @@ angular.module("app").controller("FormController", function ($scope, $routeParam
         body: $scope.threadBody,
         creator: 1
     }, function(response) {
-      return $location.path(response.url)
+      return $location.path(response.url);
     });
 
-  }
+  };
   $scope.forums = $resource('/api/forums').query();
   $scope.threadForum = $scope.forums[1];
 });

@@ -22,7 +22,10 @@ body {
   font-family: 'Source Sans Pro', "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   cursor:pointer;
 }
-
+.reply.form {
+  margin-top: 1.5em;
+  max-width: 40em;
+}
 /*******************************
             Global
 *******************************/
