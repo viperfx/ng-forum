@@ -18,15 +18,15 @@ class ForumSerializer(serializers.ModelSerializer):
     class Meta:
         model = Forum
         depth=1
-        fields = ('id','title','threads',)
+        fields = ('id','title', 'threads',)
 
 class ThreadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Thread
-        depth=1
-        fields = ('title', 'forum', 'creator', 'posts')
+        depth=2
+        fields = ('title', 'forum', 'body', 'creator', 'posts')
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ('thread', 'body')
+        fields = ('thread', 'body', 'creator')

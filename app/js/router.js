@@ -22,6 +22,10 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
     //   }
     // }
   });
+  $routeProvider.when('/forum/:fid/thread/:tid', {
+    templateUrl: 'posts.html',
+    controller: 'PostController'
+  });
   $routeProvider.when('/forum/:id', {
     templateUrl: 'threads.html',
     controller: 'ThreadController'

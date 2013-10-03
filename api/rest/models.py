@@ -9,6 +9,7 @@ class Forum(models.Model):
         return self.thread_set.all()
 class Thread(models.Model):
     title = models.CharField(max_length=60)
+    body = models.TextField(max_length=10000)
     created = models.DateTimeField(auto_now_add=True)
     creator = models.ForeignKey(User, blank=True, null=True)
     forum = models.ForeignKey(Forum, related_name='threads')
