@@ -5,6 +5,9 @@ from rest import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'forums', views.ForumViewSet)
+router.register(r'threads', views.ThreadViewSet)
+router.register(r'posts', views.PostViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browseable API.

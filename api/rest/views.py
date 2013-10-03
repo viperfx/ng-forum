@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User, Group
+from rest.models import Forum, Thread, Post
 from rest_framework import viewsets
-from rest.serializers import UserSerializer, GroupSerializer
+from rest.serializers import UserSerializer, GroupSerializer, ForumSerializer, ThreadSerializer, PostSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -22,6 +23,26 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
 
 
+class ForumViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Forum.objects.all()
+    serializer_class = ForumSerializer
+
+class ThreadViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Thread.objects.all()
+    serializer_class = ThreadSerializer
+
+class PostViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
 
 class AuthView(APIView):
