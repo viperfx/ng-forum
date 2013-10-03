@@ -21,13 +21,13 @@
           </div>
         </div>
       </div>
-      <form class="ui reply form">
+    </div>
+    <form class="ui reply form">
         <div class="field">
-          <textarea></textarea>
+          <textarea ng-model="postBody"></textarea>
         </div>
-        <div class="ui button teal submit labeled icon">
+        <div ng-click="postReply()" class="ui button teal submit labeled icon">
           <i class="icon edit"></i> Add Comment
         </div>
       </form>
-    </div>
 </div>

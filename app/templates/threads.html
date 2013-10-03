@@ -1,8 +1,8 @@
-<div class="ui tabular filter menu">
+<!-- <div class="ui tabular filter menu">
   <a class="active item" data-tab="unread">Unread</a>
   <a class="item" data-tab="saved">Saved</a>
   <a class="item" data-tab="all">All</a>
-</div>
+</div> -->
 <div class="ui divided inbox selection list active tab" data-tab="unread" ng-controller="ThreadController">
   <div class="item" ng-repeat="thread in forum.threads" ng-click="go('/forum/{{forum.id}}/thread/{{thread.id}}')">
     <div class="right floated date">Sep 05, 2013</div>

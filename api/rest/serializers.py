@@ -24,7 +24,7 @@ class ThreadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Thread
         depth=2
-        fields = ('title', 'forum', 'body', 'creator', 'posts')
+        fields = ('id','title', 'forum', 'body', 'creator', 'posts')
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
