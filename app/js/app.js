@@ -31,5 +31,8 @@ angular.module("app", ["ngResource", "ngRoute", "ngCookie", "ngAnimate"]).run(fu
       $http.defaults.headers.common['Authorization'] = 'Token '+AuthenticationService.isAuthenticated();
     }
   });
+}).filter('timeAgo', function() {
+  return function(input) {
+    return moment(input).fromNow();
+  };
 });
-

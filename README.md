@@ -4,6 +4,7 @@
 
 
 ## Done
+- Create view for new topic
 - Create views for posts
 - Hook up endpoints to angular views for forums/threads
 - Create Forum, Topic, Thread model and respective api endpoints

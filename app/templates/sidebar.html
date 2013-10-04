@@ -6,7 +6,7 @@
     Intros <span class="ui label">10</span>
   </a> -->
   <a class="item" ng-repeat="forum in forums" href="/forum/{{ forum.id}}">
-    {{forum.title}} <span class="ui label">{{ forum.id}}</span>
+    {{forum.title}} <span class="ui label">{{ forum.threads.length}}</span>
   </a>
   <!-- <div class="item">
     <b>Archived Threads</b>
