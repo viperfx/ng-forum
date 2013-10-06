@@ -1,7 +1,8 @@
 # ngForum - AngularJS forum app
 
 ## TODO
-
+- add tests via testem
+- create API stub points for showing app as example without need for API server
 
 ## Done
 - Create view for new topic
