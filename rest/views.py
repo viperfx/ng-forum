@@ -6,6 +6,12 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from annoying.decorators import render_to
+
+@render_to('index.html')
+def home(request):
+    return {}
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """

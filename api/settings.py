@@ -103,12 +103,16 @@ ROOT_URLCONF = 'api.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'api.wsgi.application'
 
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-)
+    os.path.join(SITE_ROOT, 'templates')
 
+)
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -168,9 +172,10 @@ ALLOWED_HOSTS = ['*']
 # Static asset configuration
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
-
+print BASE_DIR
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, '../client/dist'),
 )
+TEMPLATE_CONTEXT_PROCESSORS = ( 'django.contrib.messages.context_processors.messages', 'django.contrib.auth.context_processors.auth', 'django.core.context_processors.static', )
