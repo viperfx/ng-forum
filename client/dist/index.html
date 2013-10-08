@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>lineman-angular-template</title>
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/css/app.css" media="all" />
+  </head>
+  <body ng-controller="AppCtrl" id="feed">
+    <div class="ui celled grid">
+        <div class="three wide left column"><div ng-include="'sidebar.html'"></div></div>
+        <div id="home" class="thirteen wide middle column">
+          <ng-view></ng-view>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="/js/app.js"></script>
+  </body>
+</html>
