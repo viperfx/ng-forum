@@ -5,4 +5,5 @@
 
 /dist
 /generated
-/venv
+/api/venv
+/api/staticfiles
