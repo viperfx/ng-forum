@@ -67,6 +67,7 @@ class AuthView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request, format=None):
+        login(request, request.user)
         content = {
             'user': unicode(request.user),  # `django.contrib.auth.User` instance.
             'auth': unicode(request.auth),  # None
