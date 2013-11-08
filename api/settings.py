@@ -121,7 +121,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework.authtoken',
+    # 'rest_framework.authtoken',
     'rest',
     'south'
     # Uncomment the next line to enable the admin:
@@ -158,10 +158,14 @@ LOGGING = {
         },
     }
 }
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
 
 # Parse database configuration from $DATABASE_URL
-DATABASES['default'] =  dj_database_url.config()
+# DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -176,6 +180,8 @@ STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
 print BASE_DIR
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '../client/dist'),
+    os.path.join(BASE_DIR, '../client/generated'),
 )
 TEMPLATE_CONTEXT_PROCESSORS = ( 'django.contrib.messages.context_processors.messages', 'django.contrib.auth.context_processors.auth', 'django.core.context_processors.static', )
+# False so angularjs can detect a sessionid
+SESSION_COOKIE_HTTPONLY = False

@@ -2,14 +2,16 @@ from django.contrib.auth.models import User, Group
 from rest.models import Forum, Thread, Post
 from rest_framework import viewsets
 from rest.serializers import UserSerializer, GroupSerializer, ForumSerializer, ThreadSerializer, PostSerializer
-from rest_framework.authentication import TokenAuthentication
+from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from django.contrib.auth import authenticate, login
 from rest_framework.views import APIView
 from annoying.decorators import render_to
-
+from rest_framework.decorators import api_view
 @render_to('index.html')
 def home(request):
+    print request.user
     return {}
 
 
@@ -54,12 +56,13 @@ class PostViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
+
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
 
 class AuthView(APIView):
-    authentication_classes = (TokenAuthentication,)
+    authentication_classes = (SessionAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     def get(self, request, format=None):
@@ -68,3 +71,18 @@ class AuthView(APIView):
             'auth': unicode(request.auth),  # None
         }
         return Response(content)
+
+
+@api_view(['POST'])
+def ajax_login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+      if user.is_active:
+          login(request, user)
+          return Response({"status" : "true"})
+      else:
+          return Response( {"status" : "false", "reason" : "You need to activate your account. Please check your email"})
+    else:
+          return Response({"status" : "false", "reason" : "Invalid username/password"})

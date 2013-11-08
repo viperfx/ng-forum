@@ -5,3 +5,4 @@
 /client/generated
 /venv
 /staticfiles
+/static

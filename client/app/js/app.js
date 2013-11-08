@@ -1,4 +1,4 @@
-angular.module("app", ["ngResource", "ngRoute", "ngCookie", "ngAnimate"]).run(function($rootScope, $location, $http, AuthenticationService) {
+angular.module("app", ["ngResource", "ngRoute", "ngCookie", "ngAnimate"]).run(function($rootScope, $location, $http, $cookie, AuthenticationService) {
   // adds some basic utilities to the $rootScope for debugging purposes
   $rootScope.log = function(thing) {
     console.log(thing);
@@ -28,7 +28,8 @@ angular.module("app", ["ngResource", "ngRoute", "ngCookie", "ngAnimate"]).run(fu
       // redirect back to login
       $location.path('/login');
     }else {
-      $http.defaults.headers.common['Authorization'] = 'Token '+AuthenticationService.isAuthenticated();
+      // $http.defaults.headers.common['Authorization'] = 'Token '+AuthenticationService.isAuthenticated();
+      $http.defaults.headers.post["X-CSRFToken"] = $cookie('csrftoken');
     }
   });
 }).filter('timeAgo', function() {
