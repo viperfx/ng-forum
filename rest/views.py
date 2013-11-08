@@ -63,10 +63,10 @@ class PostViewSet(viewsets.ModelViewSet):
 
 
 class AuthView(APIView):
-    authentication_classes = (SessionAuthentication,BasicAuthentication)
+    authentication_classes = (BasicAuthentication, SessionAuthentication,)
     permission_classes = (IsAuthenticated,)
 
-    def get(self, request, format=None):
+    def post(self, request, format=None):
         content = {
             'user': unicode(request.user),  # `django.contrib.auth.User` instance.
             'auth': unicode(request.auth),  # None
