@@ -8,13 +8,10 @@ angular.module("app").factory('AuthenticationService', function($http, $cookie, 
     login: function(credentials) {
       // return $http.post('/login', credentials);
       return $http({
-                  url:'/api/login/',
+                  url:'/api/basicauth/',
                   method:'POST',
-                  data: $.param({
-                    username:credentials.username,
-                    password:credentials.password,
-                  }),
-                  headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                  headers: {
+                          'Authorization': 'Basic '+$.base64.encode(credentials.username+":"+credentials.password)}
                   }).success(function(response) {
           console.log(response);
       });

@@ -160,6 +160,7 @@ LOGGING = {
 }
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     )
 }
@@ -180,7 +181,7 @@ STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
 print BASE_DIR
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '../client/generated'),
+    os.path.join(BASE_DIR, '../client/dist'),
 )
 TEMPLATE_CONTEXT_PROCESSORS = ( 'django.contrib.messages.context_processors.messages', 'django.contrib.auth.context_processors.auth', 'django.core.context_processors.static', )
 # False so angularjs can detect a sessionid

@@ -2,7 +2,7 @@ from django.contrib.auth.models import User, Group
 from rest.models import Forum, Thread, Post
 from rest_framework import viewsets
 from rest.serializers import UserSerializer, GroupSerializer, ForumSerializer, ThreadSerializer, PostSerializer
-from rest_framework.authentication import SessionAuthentication
+from rest_framework.authentication import SessionAuthentication,BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.contrib.auth import authenticate, login
@@ -61,8 +61,9 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
 
 
+
 class AuthView(APIView):
-    authentication_classes = (SessionAuthentication,)
+    authentication_classes = (SessionAuthentication,BasicAuthentication)
     permission_classes = (IsAuthenticated,)
 
     def get(self, request, format=None):
